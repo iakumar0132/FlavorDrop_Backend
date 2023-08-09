@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 7000;
 const app = express();
 
 app.use(cors({
-  origin: ['https://flavordrop.netlify.app/', 'http://localhost:6019'],
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
   optionsSuccessStatus: 204 // Set the status for successful OPTIONS requests
@@ -21,7 +21,7 @@ app.use(cors({
 
 app.use(express.json());
 app.get('/', (req, res) => {
-  res.send('All Good!')
+  res.send('Hello!')
 });
 
 app.use('/api/auth', require('./Routes/Auth'));
